@@ -1,0 +1,131 @@
+{
+  "name": "macrodeck",
+  "version": "0.1.0",
+  "author": "C. Eugene Bey",
+  "description": "stuff",
+  "private": true,
+  "main": "./electron/main.js",
+  "homepage": "./",
+  "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
+    "@nut-tree/nut-js": "^3.0.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.11.45",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "cpx": "^1.5.0",
+    "electron-is-dev": "^2.0.0",
+    "electron-json-storage": "^4.5.0",
+    "ip": "^1.1.8",
+    "lodash": "^4.17.21",
+    "obs-websocket-js": "^5.0.0",
+    "ping": "^0.4.2",
+    "react": "^18.2.0",
+    "react-bootstrap-icons": "^1.8.4",
+    "react-dom": "^18.2.0",
+    "react-feather": "^2.0.10",
+    "react-hook-form": "^7.38.0",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "^5.0.1",
+    "react-toastify": "^9.0.7",
+    "socket.io": "^4.5.1",
+    "styled-components": "^5.3.5",
+    "time-stamp": "^2.2.0",
+    "tmi.js": "^1.8.5",
+    "typescript": "^4.7.4",
+    "uuid": "^8.3.2",
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
+  },
+  "build": {
+    "asar": true,
+    "extends": null,
+    "appId": "com.macrodeck",
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "mac": {
+      "category": "your.app.category.type"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "releaseType": "draft"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "react-scripts build",
+    "dev": "cross-env APP_DEV=true electron . ",
+    "dist": "electron-builder",
+    "eject": "react-scripts eject",
+    "pack": "cross-env APP_DEV=false electron-builder --dir",
+    "postbuild": "cpx build/** electron/build",
+    "postinstall": "electron-builder install-app-deps",
+    "rebuild": "npm rebuild --runtime=electron --target=18.2.0 --disturl=https://atom.io/download/atom-shell --force-abi=101",
+    "rebuilder": ".\\node_modules\\.bin\\electron-rebuild.cmd",
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "cover": "npm run test -- --coverage"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.182",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.25",
+    "@types/uuid": "^8.3.4",
+    "cross-env": "^7.0.3",
+    "electron": "^22.0.2",
+    "electron-builder": "^23.6.0",
+    "electron-rebuild": "^3.2.8"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/path/to/dir/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "coverageReporters": [
+      "text",
+      "html"
+    ]
+  }
+}

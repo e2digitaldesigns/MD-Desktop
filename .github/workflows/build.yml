@@ -1,0 +1,36 @@
+name: Build/release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: NPM Install
+        run: npm install
+
+      - name: Create React Build
+        run: npm run-script build
+
+      # - name: Electron Builder Action
+      #   uses: samuelmeuli/action-electron-builder@v1.6.0
+
+      #   with:
+      #     github_token: ${{ secrets.my_gh_token }}
+      #     release: ${{ startsWith(github.ref, 'refs/tags/v') }}

@@ -1,0 +1,22 @@
+{
+  "userInformation": { "_id": "", "name": "" },
+  "settings": {
+    "md": {
+      "ipAddress": "",
+      "port": ""
+    },
+    "features": {
+      "obs": {
+        "status": "0",
+        "ipAddress": "",
+        "port": "",
+        "password": ""
+      }
+    }
+  },
+  "profiles": [],
+  "pages": [],
+  "buttonPads": [],
+  "actions": [],
+  "styles": []
+}
